@@ -40,7 +40,6 @@
             $this->duplicarfotos();
             $this->embaralhar();
             $this->matriz1 = $this->ColocarMatriz(2, 3);
-            print_r($this->matriz1);
             echo $this->criarFotos();
 
         }
@@ -48,10 +47,10 @@
         private function criarFotos() {
             $jogo = "";
             foreach($this->matriz1 as $i) {
-                foreach($i as $imagens) {
-                    $jogo .= "<img class='imgs' src='img/{$imagens}' >";
+                foreach($i as $imagem) {
+                    $jogo .= "<img class='w-72 h-72 rounded m-2 hover:ring ring-black box-content transition ease-in' 
+                    src='img/{$imagem}' alt='{$imagem}'>";
                 }
-                $jogo .= "<br>";
             }
             return $jogo;
         }
