@@ -1,57 +1,34 @@
 <?php 
 
     class JogoMemoria {
-        private $fotos = array(
-            'bbleta.jpg',
+        private array $cartasJogo;
+        private array $analiseJogo;
+        private array $imagems = [
+            'bbleta.jpg',   
             'euto.jpg',
             'ganco.jpg',
             'uva.jpg'
-        );
-        
-        private $matriz1 = array();
-        private $matriz2 = array();
+        ];
 
-        private function embaralhar() {
-            shuffle($this->fotos);
+        public function __construct(array $jogoAnterior = null) {
+            if (!isset($jogoAnterior)) {
+                session_start();
+                $this->criarJogo();
+                $_SESSION['jogo'] = $this->cartasJogo;
+            }  
         }
 
-        private function duplicarfotos(){
-            $this->fotos = array_merge($this->fotos, $this->fotos);
-        }
-
-        private function ColocarMatriz($lin,$col){
-            $matriz = array();
-            $posicaoFoto = 0;
-            $tamanhoFotos = sizeof($this->fotos);
-            while ($posicaoFoto < $tamanhoFotos) {
-                for($l = 0; $l < $lin; $l++){
-                    $array = array(); 
-                    for($c = 0; $c <= $col; $c++){
-                        array_push($array, $this->fotos[$posicaoFoto]);
-                        $posicaoFoto++;
-                    }
-                    array_push($matriz, $array);
-                }
+        private function criarJogo() {
+            include_once 'carta.php';
+            
+            $this->cartasJogo = array();
+            
+            $imagems = array_merge($this->imagems, $this->imagems);
+            
+            foreach($imagems as $id => $imagem) {
+                $this->cartasJogo[] = new Carta($imagem, $id, true);
             }
-            return $matriz;
+            
+            shuffle($this->cartasJogo);
         }
-
-        public function teste() {
-            $this->duplicarfotos();
-            $this->embaralhar();
-            $this->matriz1 = $this->ColocarMatriz(2, 3);
-            echo $this->criarFotos();
-
-        }
-
-        private function criarFotos() {
-            $jogo = "";
-            foreach($this->matriz1 as $i) {
-                foreach($i as $imagem) {
-                    
-                }
-            }
-            return $jogo;
-        }
-
     }
