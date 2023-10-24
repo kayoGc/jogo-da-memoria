@@ -48,8 +48,7 @@
             $jogo = "";
             foreach($this->matriz1 as $i) {
                 foreach($i as $imagem) {
-                    $jogo .= "<img class='w-72 h-72 rounded m-2 hover:ring ring-black box-content transition ease-in' 
-                    src='img/{$imagem}' alt='{$imagem}'>";
+                    
                 }
             }
             return $jogo;
