@@ -1,3 +1,7 @@
+<?php  
+    include 'php-action/fazerJogo.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +17,7 @@
     <div class="shadow-sm hover:shadow-lg transition mx-auto p-10 m-2 flex flex-col justify-center items-center gap-2">
         <h1 class="text-4xl">Jogo da memória</h1>
         <form class="flex flex-row flex-wrap max-w-7xl" method="get">
-                <?php 
-                    include 'php-class/jogo-memoria.php';
-                    $jogo = isset($_SESSION['jogo']) ? $_SESSION['jogo'] : null;
-                    $jogoMemoria = new JogoMemoria($jogo); 
-                    
-                    print_r($jogo);
-                ?>
+                <?=$jogoMemoria->getHtml()?>      
         </form>
 
         <?php 
