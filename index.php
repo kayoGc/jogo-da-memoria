@@ -19,10 +19,6 @@
         <form class="flex flex-row flex-wrap max-w-7xl" method="get">
                 <?=$jogoMemoria->getHtml()?>      
         </form>
-
-        <?php 
- 
-        ?>
     </div>
 
 </body>

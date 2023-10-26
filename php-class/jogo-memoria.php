@@ -13,7 +13,13 @@
 
         public function __construct(array $cartasJogoAnterior = null) {
             include_once 'carta.php';
-            isset($cartasJogoAnterior) ? $this->criarJogo() : $this->criarJogo($cartasJogoAnterior);
+            if (isset($cartasJogoAnterior)) {
+                $this->criarJogo($cartasJogoAnterior);
+                echo 'oi';
+            } else {
+                $this->criarJogo();
+                echo 'eae';
+            }
             $this->fazerHtml();  
         }
 
