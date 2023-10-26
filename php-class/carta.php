@@ -1,27 +1,28 @@
 <?php 
     class Carta {
         private string $imagem;
-        private int $id;
         private bool $virado;
 
-        public function __construct(string $imagem, int $id, bool $virado) {
+        public function __construct(string $imagem) {
             $this->imagem = $imagem;
-            $this->id = $id;
-            $this->virado = $virado;
+            $this->virado = false;
         }
         
         public function getImagem() {
             return $this->imagem;
         }
 
-        public function getStatus() {
+        public function getStatusVirado() {
             return $this->virado;
         }
 
-        public function getId() {
-            return $this->id;
+        public function virar() {
+            $this->virado = $this->virado ? false : true;
         }
 
+        public function revelar() {
+            $this->virado = true;
+        }
     }
 
 ?>
