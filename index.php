@@ -12,20 +12,17 @@
     
 </head>
 <body class="flex flex-col m-auto h-screen w-screen">
-
-
-    <div class="shadow-sm hover:shadow-lg transition mx-auto p-10 m-2 flex flex-col items-center gap-2">
+    <div class="shadow-sm transition mx-auto p-10 m-2 flex flex-col items-center gap-2">
         <h1 class="text-2xl">Jogo da memória</h1>
         <form class="flex flex-row flex-wrap max-w-5xl items-center justify-center" method="get">
                 <?=$jogoMemoria->getHtml()?>     
         </form>
         <?=$jogoMemoria->getHtmlErros();?>
         <form method="get">
-            <button type="submit" name="novoJogo">Reiniciar</button>
+            <button class="px-4 py-2 bg-green-400 hover:bg-green-600 transition ease-in rounded" 
+            type="submit" name="novoJogo">Reiniciar</button>
         </form>
     </div>
-
-
     <?php 
         include 'php-action/analisar-cartas.php';
     ?>

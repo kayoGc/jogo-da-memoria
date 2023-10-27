@@ -5,12 +5,18 @@
 
         $_SESSION['cartas'] = $jogoMemoria->getCartasJogo();
         $_SESSION['erros'] = $jogoMemoria->getErros();
+        $_SESSION['acertos'] = $jogoMemoria->getAcertos();
 
         ?>
-        <form method="get">
-            <input type="hidden" value="analisando">
-        </form>
 
-    <?php
+<form method="get">
+    <input type="hidden" value="analisando">
+</form>
+
+<?php
+
+    if($_SESSION['acertos'] == $jogoMemoria->getQuantidadeFotos() || $_SESSION['erros'] == 8) {        
+        header('refresh:0');
+    }
     }
 ?>

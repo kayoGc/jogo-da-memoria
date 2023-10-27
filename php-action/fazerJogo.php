@@ -11,15 +11,15 @@
     if (!isset($_SESSION['cartas'])) {
         $_SESSION['cartas'] = $jogoMemoria->getCartasJogo();
         $_SESSION['erros'] = $jogoMemoria->getErros(); 
+        $_SESSION['acertos'] = $jogoMemoria->getAcertos();
     } else {
-        $jogoMemoria = new JogoMemoria($_SESSION['cartas'], $_SESSION['erros']);
+        $jogoMemoria = new JogoMemoria($_SESSION['cartas'], $_SESSION['erros'], $_SESSION['acertos']);
     }
 
     if (isset($_GET['carta']) && !isset($_GET['analisando'])) {
         escolherCartas($_GET['carta'], $jogoMemoria);
-        $jogoMemoria = new JogoMemoria($_SESSION['cartas'], $_SESSION['erros']);
+        $jogoMemoria = new JogoMemoria($_SESSION['cartas'], $_SESSION['erros'], $_SESSION['acertos']);
     }
-
 
     /**
      * Função que guarda as cartas selecionadas em variaveis de sessão
