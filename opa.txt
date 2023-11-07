@@ -20,7 +20,7 @@
         <?=$jogoMemoria->getHtmlErros();?>
         <form method="get">
             <button class="px-4 py-2 bg-green-400 hover:bg-green-600 transition ease-in rounded" 
-            type="submit" name="novoJogo" value="resetar">Reiniciar</button>
+            type="submit" name="novoJogo">Reiniciar</button>
         </form>
     </div>
     <?php 
